@@ -224,8 +224,8 @@ import {
 import { useRouter } from "next/navigation";
 
 const ChatNavbar: React.FC = () => {
-    const iconStyle = "w-5 h-5 text-blue-800";
-    const headerTextStyle = "text-blue-800 font-semibold";
+    const iconStyle = "w-5 h-5 text-blue-800 dark:text-blue-600";
+    const headerTextStyle = "text-blue-800 dark:text-blue-600 font-semibold";
     const { timeLeft, isTimerRunning, pauseTimer, resumeTimer, resetTimer, isStudyStarted } = useTimer();
 
     const initialTime = 30 * 60;
@@ -273,12 +273,12 @@ const ChatNavbar: React.FC = () => {
     }, [isStudyStarted, isTimerRunning]);
 
     return (
-        <header className="bg-white sticky top-0 z-50 border-b shadow-sm py-4 px-8">
+        <header className="bg-background dark:bg-[#121212] sticky top-0 z-50 border-b shadow-sm py-4 px-8">
             <div className="flex justify-between">
                 <div className="flex gap-2 items-center">
                     {/* Back to Dashboard Button with Dialog */}
                     <Button variant="ghost" size="icon" onClick={() => setOpenBackDialog(true)}>
-                        <ArrowLeft className="w-5 h-5 text-blue-800" />
+                        <ArrowLeft className="w-5 h-5 text-blue-800 dark:text-blue-600" />
                     </Button>
                     <Dialog open={openBackDialog} onOpenChange={setOpenBackDialog}>
                         <DialogTrigger asChild>

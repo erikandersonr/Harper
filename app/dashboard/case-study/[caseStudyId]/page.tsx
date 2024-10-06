@@ -69,7 +69,7 @@ const ChatPage = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 p-8 lg:p-12 gap-6">
+        <div className="dark:bg-[#121212] grid grid-cols-1 lg:grid-cols-2 p-8 lg:p-12 gap-6">
             <CaseStudySection
                 caseStudyTitle={caseStudy.title}
                 caseStudyDescription={caseStudy.cardContent}

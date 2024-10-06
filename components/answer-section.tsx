@@ -1,8 +1,8 @@
-"use client";
+ "use client";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
-import { SetStateAction, useState, useEffect, useRef } from "react";
+import { SetStateAction, useState, useEffect, useRef, KeyboardEvent } from "react";
 import { Input } from "./ui/input";
 import { LoaderCircle, ChevronDown } from "lucide-react";
 import { useTimer } from "./timer-context";
@@ -69,6 +69,14 @@ const AnswerSection = () => {
         setAnswer(e.target.value);
     };
 
+    // New function to handle "Enter" key press
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent default behavior of Enter key
+            handleAnswerSubmit(); // Submit the answer when Enter is pressed
+        }
+    };
+
     // Effect to clear messages and input field when the timer is reset
     useEffect(() => {
         if (timerReset) {
@@ -106,7 +114,7 @@ const AnswerSection = () => {
     }, []);
 
     return (
-        <Card className="w-full h-[550px] flex flex-col relative">
+        <Card className="w-full h-[550px] dark:bg-[#1D1D20] flex flex-col relative">
             <CardHeader className="border-b">
                 <CardTitle>Answer Section</CardTitle>
                 <CardDescription>Chat with our AI to get feedback on your interview.</CardDescription>
@@ -134,12 +142,13 @@ const AnswerSection = () => {
                     </div>
                 )}
             </CardContent>
-            <CardFooter className="lg:sticky lg:bottom-0 bg-white w-full p-4">
+            <CardFooter className="lg:sticky lg:bottom-0 bg-background dark:bg-[#1D1D20] w-full p-4">
                 <div className="flex w-full gap-2">
                     <Input
                         value={answer}
                         onChange={handleInputChange}
-                        className="w-full"
+                        onKeyDown={handleKeyDown} // Added onKeyDown to handle Enter key
+                        className="w-full dark:bg-[#1D1D20]"
                         placeholder="Type your answer..."
                         disabled={!isStudyStarted || isLoading || !isTimerRunning}
                     />
@@ -161,7 +170,7 @@ const AnswerSection = () => {
                     onClick={scrollToBottom}
                     className="absolute bottom-16 left-4 rounded-full p-1"
                 >
-                    <ChevronDown className="w-5 h-5 text-blue-800" />
+                    <ChevronDown className="w-5 h-5 text-blue-800 dark:text-blue-600" />
                 </Button>
             )}
         </Card>

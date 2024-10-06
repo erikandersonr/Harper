@@ -219,7 +219,7 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({
     }, [timerReset, setStudyStarted]);
 
     return (
-        <Card className="w-full h-[550px] flex flex-col">
+        <Card className="w-full dark:bg-[#1D1D20] h-[550px] flex flex-col">
             {!started ? (
                 // Initial State - Before the button is pressed
                 <div className="flex flex-col justify-center items-center h-full text-center py-8 px-12">
@@ -228,7 +228,7 @@ const CaseStudySection: React.FC<CaseStudySectionProps> = ({
                     {loading ? (
                         <Button disabled className="w-1/2 bg-blue-800 hover:bg-blue-800/90">
                             <div className="animate-spin">
-                                <LoaderCircle className="w-4 h-4 text-primary-foreground" />
+                                <LoaderCircle className="w-4 h-4 text-primary-foreground dark:text-primary" />
                             </div>
                         </Button>
                     ) : (

@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="p-10">
+    <div className="p-10 bg-background">
       <Link href="/dashboard">
-        <Button>Go to Dashboard</Button>
+        <Button variant="outline">Go to Dashboard</Button>
       </Link>
     </div>
   )

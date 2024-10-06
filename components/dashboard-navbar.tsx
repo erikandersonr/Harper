@@ -13,12 +13,12 @@ const DashboardNavbar = () => {
 
     return (
         <header>
-            <div className="px-8 py-8 border-b">
+            <div className="px-8 dark:bg-[#121212] py-8 border-b">
                 <div className="flex justify-between items-center">
                     <div>
                         <div className="flex gap-2 items-center">
                             <h1 className="text-2xl font-semibold">Your Dashboard</h1>
-                            <p className="hidden md:block text-xs bg-blue-800 text-white px-2 py-1 rounded-full">Beta</p>
+                            <p className="hidden md:block text-xs bg-blue-800 dark:bg-blue-600 text-white px-2 py-1 rounded-full">Beta</p>
                         </div>
                         <p className="text-muted-foreground">View some example case studies that mimic top firms.</p>
                     </div>
@@ -27,10 +27,10 @@ const DashboardNavbar = () => {
                         <Sheet open={open} onOpenChange={setOpen}>
                             <SheetTrigger asChild>
                                 <Button variant="ghost" size="icon" onClick={() => setOpen(true)}>
-                                    <AlignRight className="text-blue-800" />
+                                    <AlignRight className="text-blue-800 dark:text-blue-600" />
                                 </Button>
                             </SheetTrigger>
-                            <SheetContent>
+                            <SheetContent className="bg-[#121212]">
                                 <DashboardSidebar />
                             </SheetContent>
                         </Sheet>
